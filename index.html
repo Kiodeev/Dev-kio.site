@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevKIO.cheat</title>
+
+  <!-- Favicon (letra “K”) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3EK%3C/text%3E%3C/svg%3E"/>
+
+  <!-- TailwindCSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <!-- Poppins Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; background: #f9fafb; color: #333; margin:0; padding:0; overflow-x:hidden; }
+    .hero-bg {
+      background:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+      height:60vh; min-height:300px; position:relative;
+    }
+    @media (max-width:768px){ .hero-bg{ height:40vh; } }
+    #typed {
+      color:#fff; font-size:2.5rem; text-transform:uppercase; letter-spacing:4px;
+      animation: glow 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow:0 0 5px #ff0080,0 0 10px #ff00ff; }
+      to   { text-shadow:0 0 15px #ff0080,0 0 20px #ff00ff; }
+    }
+    .section-title{ font-size:2rem; font-weight:700; margin-bottom:1rem; text-align:center; }
+    .content-box{
+      background:#fff; border-radius:.75rem; box-shadow:0 4px 6px rgba(0,0,0,0.1);
+      padding:2rem; margin:2rem 0;
+    }
+    .contact-box{
+      background:#1f2937; border-radius:.75rem; padding:2rem;
+      color:#e5e7eb; margin:2rem auto; max-width:600px;
+    }
+    .contact-box input, .contact-box textarea{
+      background:#374151; color:#e5e7eb; width:100%; padding:.75rem;
+      border:none; border-radius:.5rem; margin-bottom:1rem;
+    }
+    .contact-box button{
+      background:#6366f1; color:#fff; padding:.75rem 1.5rem;
+      border:none; border-radius:9999px; cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-bg flex items-center justify-center">
+    <div class="absolute inset-0 bg-black opacity-60"></div>
+    <div class="relative text-center px-6">
+      <h1 id="typed" class="mb-4"></h1>
+      <p class="text-gray-300 text-lg">Software Developer | Script Creator | Graphic Designer</p>
+    </div>
+  </section>
+
+  <!-- Sobre Mim -->
+  <section id="sobre" class="max-w-4xl mx-auto py-16 px-6">
+    <h2 class="section-title">Sobre Mim</h2>
+    <div class="content-box" data-aos="fade-up">
+      <p>Olá! Sou apaixonado por criar. Desenvolvo softwares, scripts personalizados e artes visuais impactantes. Minha missão é transformar ideias em realidade com qualidade e inovação.</p>
+    </div>
+  </section>
+
+  <!-- Habilidades -->
+  <section id="habilidades" class="bg-gray-100 py-16 px-6">
+    <h2 class="section-title">Habilidades</h2>
+    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+      <div class="content-box text-center" data-aos="zoom-in">
+        <i class="fas fa-code text-indigo-500 text-4xl mb-2"></i>
+        <h3 class="font-semibold mb-1">Desenvolvimento de Software</h3>
+        <p>Aplicativos, sistemas personalizados e automações.</p>
+      </div>
+      <div class="content-box text-center" data-aos="zoom-in" data-aos-delay="100">
+        <i class="fas fa-terminal text-green-500 text-4xl mb-2"></i>
+        <h3 class="font-semibold mb-1">Criação de Scripts</h3>
+        <p>Scripts para Android, automações e ferramentas exclusivas.</p>
+      </div>
+      <div class="content-box text-center" data-aos="zoom-in" data-aos-delay="200">
+        <i class="fas fa-paint-brush text-pink-500 text-4xl mb-2"></i>
+        <h3 class="font-semibold mb-1">Design Gráfico</h3>
+        <p>Logotipos, banners, artes para redes sociais e branding.</p>
+      </div>
+      <div class="content-box text-center" data-aos="zoom-in" data-aos-delay="300">
+        <i class="fas fa-pen-fancy text-yellow-500 text-4xl mb-2"></i>
+        <h3 class="font-semibold mb-1">Desenho Digital</h3>
+        <p>Arte digital criativa e personalizada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos" class="py-16 px-6">
+    <h2 class="section-title">Serviços & Encomendas</h2>
+    <div class="content-box text-center" data-aos="fade-up">
+      <p class="mb-4">Precisa de software, scripts personalizados ou arte exclusiva? Solicite um orçamento!</p>
+      <a href="#contato" class="inline-block px-6 py-2 bg-indigo-500 text-white rounded-full">Solicitar Orçamento</a>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="py-16 px-6 bg-gray-900">
+    <h2 class="section-title text-indigo-400">Contato</h2>
+    <div class="contact-box" data-aos="fade-up">
+      <p class="mb-4 text-center">Discutir projetos, tirar dúvidas ou bater um papo — envie uma mensagem!</p>
+      <form action="https://formsubmit.co/bolachachata123@gmail.com" method="POST" class="space-y-4">
+        <input type="hidden" name="_captcha" value="false"/>
+        <input type="hidden" name="_subject" value="Nova mensagem do site DevKIO.cheat"/>
+        <input type="hidden" name="_next" value="#contato"/>
+        <input type="text" name="Nome" placeholder="Seu nome" required/>
+        <input type="email" name="Email" placeholder="Seu e-mail" required/>
+        <textarea name="Mensagem" rows="4" placeholder="Sua mensagem" required></textarea>
+        <div class="text-center">
+          <button type="submit">Enviar Mensagem</button>
+        </div>
+      </form>
+      <div class="flex justify-center space-x-6 mt-6">
+        <a href="https://discord.com/users/751569868804849704" class="text-indigo-400 text-2xl"><i class="fab fa-discord"></i></a>
+        <a href="https://instagram.com/_ygorx_09" class="text-pink-400 text-2xl"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <script src="https://kit.fontawesome.com/a2d9d5a4f1.js" crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({ duration:800, once:true });
+      new Typed('#typed', {
+        strings: ['KIO-Dev.Cheat'],
+        typeSpeed: 80, backSpeed: 40, backDelay: 1200, loop: true
+      });
+    });
+  </script>
+</body>
+                                                                                                  </html>
