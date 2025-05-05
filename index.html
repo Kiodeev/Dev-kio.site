@@ -110,7 +110,7 @@
     <h2 class="section-title text-indigo-400">Contato</h2>
     <div class="contact-box" data-aos="fade-up">
       <p class="mb-4 text-center">Discutir projetos, tirar dúvidas ou bater um papo — envie uma mensagem!</p>
-      <form id="contact-form" action="#" method="POST" class="space-y-4">
+      <form id="contact-form" action="javascript:void(0);" method="POST" class="space-y-4">
         <input type="text" name="name" placeholder="Seu nome" required />
         <input type="email" name="email" placeholder="Seu e-mail" required />
         <textarea name="message" rows="4" placeholder="Sua mensagem" required></textarea>
@@ -129,7 +129,7 @@
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
     (function(){
-      emailjs.init("user_yourPublicKey"); // Coloque sua chave pública do EmailJS aqui
+      emailjs.init("user_yourPublicKey"); // Substitua pela sua chave pública do EmailJS
     })();
 
     const form = document.getElementById("contact-form");
@@ -137,7 +137,7 @@
     form.addEventListener("submit", function(event) {
       event.preventDefault();
       
-      emailjs.sendForm("your_service_id", "your_template_id", this)
+      emailjs.sendForm("your_service_id", "your_template_id", this) // Substitua com o seu Service ID e Template ID
         .then(function(response) {
           console.log("Mensagem enviada com sucesso", response);
           window.location.href = "obrigado.html";  // Redireciona para a página de agradecimento
