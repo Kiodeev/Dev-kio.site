@@ -110,13 +110,10 @@
     <h2 class="section-title text-indigo-400">Contato</h2>
     <div class="contact-box" data-aos="fade-up">
       <p class="mb-4 text-center">Discutir projetos, tirar dúvidas ou bater um papo — envie uma mensagem!</p>
-      <form action="https://formsubmit.co/bolachachata123@gmail.com" method="POST" class="space-y-4">
-        <input type="hidden" name="_captcha" value="false"/>
-        <input type="hidden" name="_subject" value="Nova mensagem do site DevKIO.cheat"/>
-        <input type="hidden" name="_next" value="obrigado.html"/>
-        <input type="text" name="Nome" placeholder="Seu nome" required/>
-        <input type="email" name="Email" placeholder="Seu e-mail" required/>
-        <textarea name="Mensagem" rows="4" placeholder="Sua mensagem" required></textarea>
+      <form id="contact-form" action="#" method="POST" class="space-y-4">
+        <input type="text" name="name" placeholder="Seu nome" required />
+        <input type="email" name="email" placeholder="Seu e-mail" required />
+        <textarea name="message" rows="4" placeholder="Sua mensagem" required></textarea>
         <div class="text-center">
           <button type="submit">Enviar Mensagem</button>
         </div>
@@ -129,17 +126,26 @@
   </section>
 
   <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-  <script src="https://kit.fontawesome.com/a2d9d5a4f1.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      AOS.init({ duration:800, once:true });
-      new Typed('#typed', {
-        strings: ['KIO-Dev.Cheat'],
-        typeSpeed: 80, backSpeed: 40, backDelay: 1200, loop: true
-      });
+    (function(){
+      emailjs.init("user_yourPublicKey"); // Coloque sua chave pública do EmailJS aqui
+    })();
+
+    const form = document.getElementById("contact-form");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      emailjs.sendForm("your_service_id", "your_template_id", this)
+        .then(function(response) {
+          console.log("Mensagem enviada com sucesso", response);
+          window.location.href = "obrigado.html";  // Redireciona para a página de agradecimento
+        }, function(error) {
+          console.log("Erro ao enviar a mensagem", error);
+        });
     });
   </script>
+
 </body>
 </html>
