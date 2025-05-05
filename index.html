@@ -112,7 +112,7 @@
       <p class="mb-4 text-center">Discutir projetos, tirar dúvidas ou bater um papo — envie uma mensagem!</p>
       <form id="contact-form" class="space-y-4">
         <input type="text" name="from_name" placeholder="Seu nome" required/>
-        <input type="email" name="reply_to" placeholder="Seu e-mail" required/>
+        <input type="email" name="from_email" placeholder="Seu e-mail" required/>
         <textarea name="message" rows="4" placeholder="Sua mensagem" required></textarea>
         <div class="text-center">
           <button type="submit">Enviar Mensagem</button>
@@ -126,10 +126,10 @@
   </section>
 
   <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
   <script src="https://kit.fontawesome.com/a2d9d5a4f1.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       AOS.init({ duration:800, once:true });
@@ -137,21 +137,19 @@
         strings: ['KIO-Dev.Cheat'],
         typeSpeed: 80, backSpeed: 40, backDelay: 1200, loop: true
       });
-    });
 
-    (function(){
-      emailjs.init('t2HrP-6t8lNesSY5h');
-    })();
+      emailjs.init("t2HrP-6t8lNesSY5h"); // Sua PUBLIC KEY
 
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      emailjs.sendForm('service_jcmzltc', 'template_wrgptfb', this)
-        .then(function() {
-          window.location.href = 'obrigado.html';
-        }, function(error) {
-          alert('Ocorreu um erro. Tente novamente.');
-          console.log(error);
-        });
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        emailjs.sendForm('service_jcmzltc', 'template_wrgptfb', this)
+          .then(function() {
+            window.location.href = 'obrigado.html'; // Redireciona para página de agradecimento
+          }, function(error) {
+            console.log('Falha no envio:', error);
+          });
+      });
     });
   </script>
 </body>
