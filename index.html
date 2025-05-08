@@ -1,113 +1,119 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DevKIO.cheat</title>
-
-  <!-- Favicon (letra “K”) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3EK%3C/text%3E%3C/svg%3E"/>
-
-  <!-- TailwindCSS -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <title>DevKIO.cheat</title>  <!-- Favicon (letra “K”) -->  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3EK%3C/text%3E%3C/svg%3E"/>  <!-- TailwindCSS -->  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
   <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
   <!-- Poppins Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet"/>
-
-  <style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet"/>  <style>
     html { scroll-behavior: smooth; }
-    body { font-family: 'Poppins', sans-serif; background: #f9fafb; color: #333; margin:0; padding:0; overflow-x:hidden; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      margin: 0; padding: 0; overflow-x: hidden;
+    }
     .hero-bg {
-      background:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
-      height:60vh; min-height:300px; position:relative;
+      background: linear-gradient(to right, #0f172a, #1e293b);
+      height: 60vh; min-height: 300px; position: relative;
+      display: flex; align-items: center; justify-content: center;
     }
     @media (max-width:768px){ .hero-bg{ height:40vh; } }
     #typed {
-      color:#fff; font-size:2.5rem; text-transform:uppercase; letter-spacing:4px;
+      color: #00f5ff; font-size: 2.5rem; text-transform: uppercase; letter-spacing: 4px;
       animation: glow 1.5s ease-in-out infinite alternate;
     }
     @keyframes glow {
-      from { text-shadow:0 0 5px #ff0080,0 0 10px #ff00ff; }
-      to   { text-shadow:0 0 15px #ff0080,0 0 20px #ff00ff; }
+      from { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
+      to   { text-shadow: 0 0 15px #0ff, 0 0 25px #0ff; }
     }
-    .section-title{ font-size:2rem; font-weight:700; margin-bottom:1rem; text-align:center; }
-    .content-box{
-      background:#fff; border-radius:.75rem; box-shadow:0 4px 6px rgba(0,0,0,0.1);
-      padding:2rem; margin:2rem 0;
+    .section-title {
+      font-size: 2rem; font-weight: 700; margin-bottom: 1rem; text-align: center;
+      color: #38bdf8; text-shadow: 0 0 10px #38bdf8;
     }
-    .contact-box{
-      background:#1f2937; border-radius:.75rem; padding:2rem;
-      color:#e5e7eb; margin:2rem auto; max-width:600px;
+    .content-box {
+      background: #1e293b; border-radius: .75rem; box-shadow: 0 0 10px #0ff;
+      padding: 2rem; margin: 2rem 0;
     }
-    .contact-box input, .contact-box textarea{
-      background:#374151; color:#e5e7eb; width:100%; padding:.75rem;
-      border:none; border-radius:.5rem; margin-bottom:1rem;
+    .contact-box {
+      background: #1e293b; border-radius: .75rem; padding: 2rem;
+      color: #e5e7eb; margin: 2rem auto; max-width: 600px;
+      box-shadow: 0 0 12px #38bdf8;
     }
-    .contact-box button{
-      background:#6366f1; color:#fff; padding:.75rem 1.5rem;
-      border:none; border-radius:9999px; cursor:pointer;
+    .contact-box input, .contact-box textarea {
+      background: #0f172a; color: #e5e7eb; width: 100%; padding: .75rem;
+      border: 1px solid #475569; border-radius: .5rem; margin-bottom: 1rem;
     }
-  </style>
-</head>
+    .contact-box button {
+      background: #06b6d4; color: #fff; padding: .75rem 1.5rem;
+      border: none; border-radius: 9999px; cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .contact-box button:hover {
+      background: #0ea5e9;
+    }
+    a.btn {
+      display: inline-block; padding: .75rem 1.5rem;
+      background: #9333ea; color: #fff; border-radius: 9999px;
+      transition: transform .2s, background .3s;
+    }
+    a.btn:hover {
+      background: #a855f7; transform: scale(1.05);
+    }
+    .cursor-glow {
+      position: fixed; width: 20px; height: 20px; border-radius: 50%;
+      pointer-events: none; background: #0ff; opacity: 0.6;
+      box-shadow: 0 0 15px #0ff;
+      transform: translate(-50%, -50%);
+      transition: transform .1s ease;
+    }
+  </style></head>
 <body>
-
+  <div class="cursor-glow" id="cursor"></div>
   <!-- Hero Section -->
-  <section id="home" class="hero-bg flex items-center justify-center">
-    <div class="absolute inset-0 bg-black opacity-60"></div>
-    <div class="relative text-center px-6">
+  <section id="home" class="hero-bg">
+    <div class="text-center px-6 relative z-10">
       <h1 id="typed" class="mb-4"></h1>
-      <p class="text-gray-300 text-lg">Software Developer | Script Creator | Graphic Designer</p>
+      <p class="text-blue-300 text-lg">Software Developer | Script Creator | Graphic Designer</p>
     </div>
-  </section>
-
-  <!-- Sobre Mim -->
-  <section id="sobre" class="max-w-4xl mx-auto py-16 px-6">
+  </section>  <section id="sobre" class="max-w-4xl mx-auto py-16 px-6">
     <h2 class="section-title">Sobre Mim</h2>
     <div class="content-box" data-aos="fade-up">
       <p>Olá! Sou apaixonado por criar. Desenvolvo softwares, scripts personalizados e artes visuais impactantes. Minha missão é transformar ideias em realidade com qualidade e inovação.</p>
     </div>
-  </section>
-
-  <!-- Habilidades -->
-  <section id="habilidades" class="bg-gray-100 py-16 px-6">
+  </section>  <section id="habilidades" class="py-16 px-6">
     <h2 class="section-title">Habilidades</h2>
     <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
       <div class="content-box text-center" data-aos="zoom-in">
-        <i class="fas fa-code text-indigo-500 text-4xl mb-2"></i>
+        <i class="fas fa-code text-cyan-400 text-4xl mb-2"></i>
         <h3 class="font-semibold mb-1">Desenvolvimento de Software</h3>
         <p>Aplicativos, sistemas personalizados e automações.</p>
       </div>
       <div class="content-box text-center" data-aos="zoom-in" data-aos-delay="100">
-        <i class="fas fa-terminal text-green-500 text-4xl mb-2"></i>
+        <i class="fas fa-terminal text-green-400 text-4xl mb-2"></i>
         <h3 class="font-semibold mb-1">Criação de Scripts</h3>
         <p>Scripts para Android, automações e ferramentas exclusivas.</p>
       </div>
       <div class="content-box text-center" data-aos="zoom-in" data-aos-delay="200">
-        <i class="fas fa-paint-brush text-pink-500 text-4xl mb-2"></i>
+        <i class="fas fa-paint-brush text-pink-400 text-4xl mb-2"></i>
         <h3 class="font-semibold mb-1">Design Gráfico</h3>
         <p>Logotipos, banners, artes para redes sociais e branding.</p>
       </div>
       <div class="content-box text-center" data-aos="zoom-in" data-aos-delay="300">
-        <i class="fas fa-pen-fancy text-yellow-500 text-4xl mb-2"></i>
+        <i class="fas fa-pen-fancy text-yellow-400 text-4xl mb-2"></i>
         <h3 class="font-semibold mb-1">Desenho Digital</h3>
         <p>Arte digital criativa e personalizada.</p>
       </div>
     </div>
-  </section>
-
-  <!-- Serviços -->
-  <section id="servicos" class="py-16 px-6">
+  </section>  <section id="servicos" class="py-16 px-6">
     <h2 class="section-title">Serviços & Encomendas</h2>
     <div class="content-box text-center" data-aos="fade-up">
       <p class="mb-4">Precisa de software, scripts personalizados ou arte exclusiva? Solicite um orçamento!</p>
-      <a href="#contato" class="inline-block px-6 py-2 bg-indigo-500 text-white rounded-full">Solicitar Orçamento</a>
+      <a href="#contato" class="btn">Solicitar Orçamento</a>
     </div>
-  </section>
-
-  <!-- Contato -->
-  <section id="contato" class="py-16 px-6 bg-gray-900">
-    <h2 class="section-title text-indigo-400">Contato</h2>
+  </section>  <section id="contato" class="py-16 px-6">
+    <h2 class="section-title">Contato</h2>
     <div class="contact-box" data-aos="fade-up">
       <p class="mb-4 text-center">Discutir projetos, tirar dúvidas ou bater um papo — envie uma mensagem!</p>
       <form id="contact-form" class="space-y-4">
@@ -119,18 +125,11 @@
         </div>
       </form>
       <div class="flex justify-center space-x-6 mt-6">
-        <a href="https://discord.com/users/751569868804849704" class="text-indigo-400 text-2xl"><i class="fab fa-discord"></i></a>
+        <a href="https://discord.com/users/751569868804849704" class="text-cyan-400 text-2xl"><i class="fab fa-discord"></i></a>
         <a href="https://instagram.com/_ygorx_09" class="text-pink-400 text-2xl"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
-  </section>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-  <script src="https://kit.fontawesome.com/a2d9d5a4f1.js" crossorigin="anonymous"></script>
-  <script>
+  </section>  <!-- Scripts -->  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>  <script src="https://kit.fontawesome.com/a2d9d5a4f1.js" crossorigin="anonymous"></script>  <script>
     document.addEventListener('DOMContentLoaded', () => {
       AOS.init({ duration:800, once:true });
       new Typed('#typed', {
@@ -138,19 +137,24 @@
         typeSpeed: 80, backSpeed: 40, backDelay: 1200, loop: true
       });
 
-      emailjs.init("t2HrP-6t8lNesSY5h"); // Sua PUBLIC KEY
+      emailjs.init("t2HrP-6t8lNesSY5h");
 
       document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
 
         emailjs.sendForm('service_jcmzltc', 'template_wrgptfb', this)
           .then(function() {
-            window.location.href = 'obrigado.html'; // Redireciona para página de agradecimento
+            window.location.href = 'obrigado.html';
           }, function(error) {
             console.log('Falha no envio:', error);
           });
       });
+
+      const cursor = document.getElementById('cursor');
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.pageX + 'px';
+        cursor.style.top = e.pageY + 'px';
+      });
     });
-  </script>
-</body>
+  </script></body>
 </html>
