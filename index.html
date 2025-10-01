@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
   <title>PorpleLink — Video Packs</title>
   <meta name="description" content="Buy exclusive video packs — modern design, responsive and PayPal ready." />
 
-  <!-- Modern Font -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
@@ -14,24 +15,21 @@
       --bg:#0f1020;
       --surface:#0b0b12;
       --muted:#9aa3b2;
-      --accent-1: #7C3AED; /* purple */
+      --accent-1:#7C3AED;
       --glass: rgba(255,255,255,0.04);
       --card-radius: 18px;
       --max-width: 1100px;
       --gap: 18px;
     }
 
-    *{box-sizing:border-box}
+    *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
     body{
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family:Inter, system-ui, sans-serif;
       background: radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.08), transparent),
                   linear-gradient(180deg,#05050a 0%, #0b0b12 100%);
-      color: #e6eef8;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      display:flex;justify-content:center;padding:32px 20px;
+      color:#e6eef8;
+      display:flex;justify-content:center;padding:24px 16px;
     }
 
     .container{
@@ -43,91 +41,109 @@
     header{
       width:100%;
       background: linear-gradient(135deg, rgba(124,58,237,0.14), rgba(16,185,129,0.06));
-      border-radius:22px;padding:36px 28px;
+      border-radius:22px;padding:28px 16px;
       display:flex;flex-direction:column;align-items:center;gap:10px;
-      box-shadow: 0 6px 20px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+      box-shadow: 0 6px 20px rgba(2,6,23,0.6);
       backdrop-filter: blur(6px);
     }
 
     .brand{
       font-family:Poppins, Inter, sans-serif;
-      font-weight:800;font-size:clamp(28px,6vw,48px);
-      letter-spacing: -1px;
+      font-weight:800;
+      font-size:clamp(24px,6vw,44px);
+      letter-spacing:-1px;
       background: linear-gradient(90deg,var(--accent-1), #23c4b0);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
+      -webkit-background-clip:text;background-clip:text;color:transparent;
       text-align:center;
+      line-height:1.2;
     }
 
     .tagline{
-      color:var(--muted);font-size:14px;text-align:center;max-width:820px;
+      color:var(--muted);
+      font-size:clamp(12px,2.5vw,15px);
+      text-align:center;
+      max-width:800px;
     }
 
-    /* Cards grid */
+    /* Grid */
     .grid{
       width:100%;display:grid;gap:var(--gap);
       grid-template-columns: repeat(1,1fr);
     }
+    @media(min-width:700px){ .grid{grid-template-columns: repeat(2,1fr);} }
+    @media(min-width:1000px){ .grid{grid-template-columns: repeat(3,1fr);} }
 
-    @media(min-width:700px){
-      .grid{grid-template-columns: repeat(3,1fr);} 
-    }
-    @media(min-width:1100px){
-      .grid{grid-template-columns: repeat(5,1fr);} 
-    }
-
+    /* Cards */
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius: var(--card-radius);
-      padding:18px; display:flex;flex-direction:column;align-items:center;gap:12px;
-      box-shadow: 0 8px 24px rgba(2,6,23,0.6);
-      border: 1px solid rgba(255,255,255,0.03);
-      transition: transform .25s ease, box-shadow .25s ease;
-      min-width:0; /* helps flex */
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+      border-radius:var(--card-radius);
+      padding:20px;display:flex;flex-direction:column;align-items:center;gap:14px;
+      box-shadow:0 8px 24px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+      transition:transform .25s ease, box-shadow .25s ease;
     }
-    .card:hover{ transform: translateY(-8px); box-shadow: 0 18px 40px rgba(15,20,40,0.6);} 
-
-    .card .size{
-      font-family:Poppins, Inter; font-size:18px; font-weight:700; color: #fff; text-align:center;
-    }
-    .card .desc{ color:var(--muted); font-size:13px; text-align:center;}
-
-    .price{
-      font-weight:800;font-size:20px;color:#fff;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,0.03);
-    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 14px 34px rgba(15,20,40,0.6);}
+    .card .size{font-family:Poppins;font-size:18px;font-weight:700;color:#fff;text-align:center;}
+    .card .desc{color:var(--muted);font-size:14px;text-align:center;}
+    .price{font-weight:800;font-size:20px;color:#fff;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,0.04);}
 
     .buy{
-      display:inline-block;
+      display:flex;align-items:center;justify-content:center;gap:8px;
       margin-top:8px;padding:12px 18px;border-radius:12px;font-weight:700;text-decoration:none;text-align:center;
-      font-size:15px;min-width:120px;outline:none;transition:transform .15s ease, box-shadow .15s ease;
-      box-shadow: 0 6px 18px rgba(11,12,20,0.6);
-      background: linear-gradient(90deg, var(--accent), rgba(0,0,0,0.1)); color:#fff;
+      font-size:15px;min-width:160px;transition:all .2s ease;
+      background:linear-gradient(90deg,#6a5acd,#23c4b0);
+      color:#fff;box-shadow:0 6px 18px rgba(11,12,20,0.6);
     }
-    .buy:hover{ box-shadow: 0 12px 30px rgba(2,6,23,0.6); transform: translateY(-4px); }
+    .buy:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(2,6,23,0.7);}
+    .buy img{height:16px;width:auto;}
 
-    /* individual accent colors */
-    .c-1{ --accent: #06b6d4; }
-    .c-2{ --accent: #7c3aed; }
-    .c-3{ --accent: #f97316; }
-    .c-4{ --accent: #ef4444; }
-    .c-5{ --accent: #10b981; }
+    /* Accent colors */
+    .c-1{--accent:#06b6d4;}
+    .c-2{--accent:#7c3aed;}
+    .c-3{--accent:#f97316;}
+    .c-4{--accent:#ef4444;}
+    .c-5{--accent:#10b981;}
 
-    .card .accent-bar{
-      height:6px;width:70%;border-radius:999px;background:linear-gradient(90deg,var(--accent), rgba(255,255,255,0.06));
-      box-shadow: 0 6px 16px rgba(14,16,20,0.5);
+    .accent-bar{
+      height:6px;width:70%;border-radius:999px;
+      background:linear-gradient(90deg,var(--accent),rgba(255,255,255,0.08));
+      box-shadow:0 6px 16px rgba(14,16,20,0.5);
     }
 
     /* Footer */
     footer{
-      width:100%; display:flex;flex-direction:column;gap:12px;align-items:center;padding:18px 22px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
-      color:var(--muted);font-size:14px;border:1px solid rgba(255,255,255,0.02);
+      width:100%;display:flex;flex-direction:column;gap:12px;align-items:center;
+      padding:18px 22px;border-radius:16px;background:rgba(255,255,255,0.02);
+      color:var(--muted);font-size:14px;text-align:center;
     }
-    .trust{
-      display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;
-    }
+    .trust{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;}
     .trust svg{width:20px;height:20px;opacity:0.95}
 
-    .small{font-size:13px;color:var(--muted)}
-
+    /* Floating Notice */
+    .notice-bubble{
+      position:fixed;bottom:20px;right:20px;z-index:999;
+      display:flex;flex-direction:column;align-items:flex-end;
+    }
+    .bubble-btn{
+      width:48px;height:48px;border-radius:50%;
+      background:linear-gradient(135deg,#7c3aed,#23c4b0);
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-size:22px;cursor:pointer;
+      box-shadow:0 6px 20px rgba(0,0,0,0.5);
+      transition:transform .25s ease;
+    }
+    .bubble-btn:hover{transform:scale(1.08);}
+    .bubble-msg{
+      background:var(--surface);color:#fff;padding:14px 18px;margin-bottom:10px;
+      border-radius:14px;max-width:260px;box-shadow:0 6px 18px rgba(0,0,0,0.6);
+      font-size:14px;line-height:1.4;display:none;position:relative;
+      animation:fadeIn .35s ease forwards;
+    }
+    .bubble-msg.show{display:block;}
+    .bubble-msg .close{
+      position:absolute;top:6px;right:8px;font-size:14px;cursor:pointer;color:#aaa;
+    }
+    @keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
   </style>
 </head>
 <body>
@@ -139,59 +155,91 @@
 
     <main style="width:100%;">
       <section class="grid" aria-label="Video Packs">
-
         <article class="card c-1">
-          <div class="accent-bar" aria-hidden="true"></div>
+          <div class="accent-bar"></div>
           <div class="size">Common Pack</div>
           <div class="desc">Common rarity — lots of good videos.</div>
           <div class="price">$5</div>
-          <a class="buy" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sapopemba28@gmail.com&item_name=Common+Pack&amount=5&currency_code=USD" target="_blank">Buy Now</a>
+          <a class="buy" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sapopemba28@gmail.com&item_name=Common+Pack&amount=5&currency_code=USD" target="_blank">
+            <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal"> Buy with PayPal
+          </a>
         </article>
 
         <article class="card c-2">
-          <div class="accent-bar" aria-hidden="true"></div>
+          <div class="accent-bar"></div>
           <div class="size">Rare Pack</div>
           <div class="desc">Rare rarity — packed with quality videos.</div>
           <div class="price">$10</div>
-          <a class="buy" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sapopemba28@gmail.com&item_name=Rare+Pack&amount=10&currency_code=USD" target="_blank">Buy Now</a>
+          <a class="buy" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sapopemba28@gmail.com&item_name=Rare+Pack&amount=10&currency_code=USD" target="_blank">
+            <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal"> Buy with PayPal
+          </a>
         </article>
 
         <article class="card c-3">
-          <div class="accent-bar" aria-hidden="true"></div>
+          <div class="accent-bar"></div>
           <div class="size">Epic Pack</div>
           <div class="desc">Epic rarity — a bigger collection of amazing videos.</div>
           <div class="price">$40</div>
-          <a class="buy" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sapopemba28@gmail.com&item_name=Epic+Pack&amount=40&currency_code=USD" target="_blank">Buy Now</a>
+          <a class="buy" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sapopemba28@gmail.com&item_name=Epic+Pack&amount=40&currency_code=USD" target="_blank">
+            <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal"> Buy with PayPal
+          </a>
         </article>
 
         <article class="card c-4">
-          <div class="accent-bar" aria-hidden="true"></div>
+          <div class="accent-bar"></div>
           <div class="size">Legendary Pack</div>
           <div class="desc">Legendary rarity — exclusive videos, top quality.</div>
           <div class="price">$65</div>
-          <a class="buy" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sapopemba28@gmail.com&item_name=Legendary+Pack&amount=65&currency_code=USD" target="_blank">Buy Now</a>
+          <a class="buy" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sapopemba28@gmail.com&item_name=Legendary+Pack&amount=65&currency_code=USD" target="_blank">
+            <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal"> Buy with PayPal
+          </a>
         </article>
 
         <article class="card c-5">
-          <div class="accent-bar" aria-hidden="true"></div>
+          <div class="accent-bar"></div>
           <div class="size">Mythic Pack</div>
           <div class="desc">Mythic rarity — ultimate collection, tons of rare videos.</div>
           <div class="price">$120</div>
-          <a class="buy" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sapopemba28@gmail.com&item_name=Mythic+Pack&amount=120&currency_code=USD" target="_blank">Buy Now</a>
+          <a class="buy" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sapopemba28@gmail.com&item_name=Mythic+Pack&amount=120&currency_code=USD" target="_blank">
+            <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal"> Buy with PayPal
+          </a>
         </article>
-
       </section>
     </main>
 
     <footer>
       <div class="trust">
-        <!-- lock icon -->
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 15a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill="currentColor" opacity="0.95"></path><path d="M7 10V8a5 5 0 0110 0v2" stroke="currentColor" stroke-width="0.6" opacity="0.9"/></svg>
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 15a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill="currentColor" opacity="0.95"></path><path d="M7 10V8a5 5 0 0110 0v2" stroke="currentColor" stroke-width="0.6" opacity="0.9"/></svg>
         <div class="small">This is a secure site. Payments are processed through PayPal and you will instantly get access to your video pack after purchase.</div>
       </div>
       <div class="small">Security icons shown as visual trust. Payments fully handled by PayPal checkout.</div>
     </footer>
   </div>
+
+  <!-- Floating Notice -->
+  <div class="notice-bubble">
+    <div class="bubble-msg" id="notice">
+      <span class="close" onclick="closeNotice()">✕</span>
+      Unsure? Contact me via Telegram and you'll receive previews (videos) and explanations about how the site works.<br><br>
+      <b>Telegram:</b> @PorpleLink
+    </div>
+    <div class="bubble-btn" onclick="toggleNotice()">!</div>
+  </div>
+
+  <script>
+    function toggleNotice(){
+      const msg=document.getElementById("notice");
+      msg.classList.toggle("show");
+    }
+    function closeNotice(){
+      document.getElementById("notice").classList.remove("show");
+      localStorage.setItem("noticeClosed","true");
+    }
+    window.onload=function(){
+      if(!localStorage.getItem("noticeClosed")){
+        document.getElementById("notice").classList.add("show");
+      }
+    }
+  </script>
 </body>
 </html>
-
